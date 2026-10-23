@@ -1,0 +1,52 @@
+Database:
+---------
+Databases are software that stores and manages the permanently in your system
+
+Relational Databases:
+MySQL, Oracle, PostgreSQL, MS SQL Server
+SQL --> Structured Query Language
+
+Database Languages
+------------------
+DDL -> Data Definition Language
+Helps you work at the table structure level
+CARD-T
+CREATE, ALTER, RENAME, DROP, TRUNKATE
+
+DML -> Data Manipulation Language
+Helps you work at data level
+INSERRT, UPDATE, DELETE, SELECT
+
+--To create a table
+  DML -> INSERT
+  CREATE TABLE table_name(field1 type1, field2 type2, ...)
+
+--To see the description (columns and their types) 
+  DESC table_name
+
+--To delete everything from the table
+  DELETE FROM table_name;
+
+-- Select command is to fetch the data from table
+  SELECT * FROM table_name;
+
+--To remove total table
+   DROP TABLE table_name
+
+--To remove specific data from table
+  DELETE FROM table_name WHERE condition;
+  Without WHERE class
+  DELETE FROM table_name -> bad way
+
+--UPDATE is used to modify the data from 1 or more rows
+  DML command -> UPDATE
+  UPDATE table_name SET col_name = new_value WHERE condition;
+
+
+
+
+
+
+
+
+

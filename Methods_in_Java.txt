@@ -1,0 +1,304 @@
+STRINGS AND ARRAYS IMPORTANT METHODS
+-----------------------------------------------------------------------------------------------------------------------
+| Method                    | Use                         | Example                             | Result               |
+| ------------------------- | --------------------------- | ----------------------------------- | -------------------- |
+| `s.length()`              | Length of string            | `s.length()`                        | `5`                  |
+| `s.charAt(i)`             | Character at index `i`      | `s.charAt(1)`                       | `'e'`                |
+| `s.equals(t)`             | Checks **content equality** | `s.equals("hello")`                 | `true`               |
+| `s.equalsIgnoreCase(t)`   | Ignores upper/lower case    | `"Hello".equalsIgnoreCase("hello")` | `true`               |
+| `s.compareTo(t)`          | Lexicographical comparison  | `"abc".compareTo("abd")`            | `-1`                 |
+| `s.contains("ell")`       | Check substring             | `s.contains("ell")`                 | `true`               |
+| `s.indexOf("l")`          | First occurrence index      | `s.indexOf("l")`                    | `2`                  |
+| `s.lastIndexOf("l")`      | Last occurrence index       | `s.lastIndexOf("l")`                | `3`                  |
+| `s.startsWith("he")`      | Check prefix                | `s.startsWith("he")`                | `true`               |
+| `s.endsWith("lo")`        | Check suffix                | `s.endsWith("lo")`                  | `true`               |
+| `s.toUpperCase()`         | Converts to upper           | `s.toUpperCase()`                   | `"HELLO"`            |
+| `s.toLowerCase()`         | Converts to lower           | `s.toLowerCase()`                   | `"hello"`            |
+| `s.trim()`                | Removes spaces (start/end)  | `" hello ".trim()`                  | `"hello"`            |
+| `s.replace("l", "r")`     | Replaces characters         | `"hello".replace("l", "r")`         | `"herro"`            |
+| `s.substring(start, end)` | Part of string              | `s.substring(1, 4)`                 | `"ell"`              |
+| `s.split(" ")`            | Break into array            | `t.split(" ")`                      | `["Hello", "World"]` |
+------------------------------------------------------------------------------------------------------------------------
+
+🔹 ARRAYS – Important Methods (from java.util.Arrays)
+import java.util.Arrays;
+int[] arr = {5, 2, 9, 1};
+--------------------------------------------------------------------------------------------------------------------
+| Method                                | Use                     | Example                     | Result           |
+| ------------------------------------- | ----------------------- | --------------------------- | ---------------- |
+| `Arrays.sort(arr)`                    | Sort array              | `Arrays.sort(arr)`          | `[1,2,5,9]`      |
+| `Arrays.toString(arr)`                | Print array             | `Arrays.toString(arr)`      | `"[1, 2, 5, 9]"` |
+| `Arrays.equals(arr1, arr2)`           | Compare 2 arrays        | `Arrays.equals(arr1, arr2)` | `true/false`     |
+| `Arrays.copyOf(arr, n)`               | Copy first `n` elements | `Arrays.copyOf(arr, 2)`     | `[5,2]`          |
+| `Arrays.copyOfRange(arr, start, end)` | Range copy              | `copyOfRange(arr,1,3)`      | `[2,9]`          |
+| `Arrays.fill(arr, val)`               | Fill all elements       | `fill(arr, 0)`              | `[0,0,0,0]`      |
+| `Arrays.binarySearch(arr, val)`       | Search in sorted array  | `binarySearch(arr, 2)`      | `1` (index)      |
+--------------------------------------------------------------------------------------------------------------------
+
+
+🔁 Confusion Clear Cheyyadam:
+Concept	              String	             Array
+Length	        s.length() (method)	  arr.length (property)
+Printing	System.out.println(s)	  Arrays.toString(arr)
+Equality	s.equals(t)	          Arrays.equals(arr1, arr2)
+Sorting	         Not built-in	          Arrays.sort(arr)
+Split/Join	split(" ") returns array  No direct join, use loop/StringBuilder
+----------------------------------------------------------------------------------------------------->
+
+✅ ADDITIONAL USEFUL STRING METHODS (Advanced/Tricky)
+
+| Method                    | Use                                     | Example              | Output            |
+| ------------------------- | --------------------------------------- | -------------------- | ----------------- |
+| `"".isEmpty()`            | Check if string is empty                | `"".isEmpty()`       | `true`            |
+| `" ".isBlank()`           | Check if only space or empty (Java 11+) | `"  ".isBlank()`     | `true`            |
+| `"Java".repeat(3)`        | Repeat string (Java 11+)                | `"Hi".repeat(3)`     | `"HiHiHi"`        |
+| `"abc".matches("[a-z]+")` | Regex check                             | `"abc".matches(...)` | `true`            |
+| `"hello".intern()`        | Puts in string pool                     | `"hello".intern()`   | `string pool ref` |
+| `"123".toCharArray()`     | Convert to char\[]                      |                      | `['1','2','3']`   |
+| `new String(charArray)`   | Char array to String                    |                      | `"123"`           |
+--------------------------------------------------------------------------------------------------------------------->
+🔁 String ↔ Char Array
+java
+Copy
+Edit
+String s = "abc";
+char[] ch = s.toCharArray();   // String to char[]
+String s2 = new String(ch);    // char[] to String
+
+✅ ADDITIONAL ARRAY TRICKS (2D Arrays, Cloning, etc.)
+| Feature                        | Use            | Example                                          | Note             |
+| ------------------------------ | -------------- | ------------------------------------------------ | ---------------- |
+| `arr.clone()`                  | Clone array    | `int[] copy = arr.clone()`                       | shallow copy     |
+| `Arrays.deepToString(arr2D)`   | Print 2D array | `System.out.println(Arrays.deepToString(arr2D))` | for 2D only      |
+| `int[][] arr = new int[3][4];` | 2D array       | `3 rows x 4 cols`                                | all 0 by default |
+
+✅ COMMON INTERVIEW CONFUSION CLARITY
+| Concept     | Arrays                                                                     | Strings                                                              |
+| ----------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `.length`   | Property                                                                   | for arrays                                                           |
+| `.length()` | Method                                                                     | for Strings                                                          |
+| `.equals()` | Arrays – compare content use `Arrays.equals()` <br> Strings – use directly |                                                                      |
+| `.==`       | Reference check (Don't use for content check)                              |                                                                      |
+| Sorting     | `Arrays.sort()`                                                            | No direct `sort()` for strings. Convert to char\[] first, then sort. |
+
+
+
+🔥 BONUS: String ↔ Array Conversion Cheat Sheet
+ String to Array
+java
+Copy
+Edit
+String s = "hello";
+char[] ch = s.toCharArray();         // to char array
+String[] words = s.split(" ");       // to string array using delimiter
+🔹 Array to String
+java
+Copy
+Edit
+char[] ch = {'a', 'b', 'c'};
+String s = new String(ch);           // char[] to string
+
+String[] arr = {"apple", "banana"};
+String joined = String.join(",", arr);  // "apple,banana"
+✅ Java 8+ Stream Methods (optional – advanced level)
+java
+Copy
+Edit
+int[] arr = {3, 1, 4};
+int max = Arrays.stream(arr).max().getAsInt();   // max value
+int sum = Arrays.stream(arr).sum();              // sum of elements
+
+| Topic   | Know These                                                                                                       |
+| ------- | ---------------------------------------------------------------------------------------------------------------- |
+| String  | `.length()`, `.charAt()`, `.equals()`, `.contains()`, `.replace()`, `.split()`, `.substring()`, `.toCharArray()` |
+| Array   | `.length`, `Arrays.sort()`, `Arrays.equals()`, `.clone()`, `Arrays.copyOf()`, `Arrays.toString()`                |
+| Special | `String.join()`, `Arrays.deepToString()`, `Streams` for sum/max/min                                              |
+|         |
+--------------------------------------------------------------------------------------------------------------------------------->
+✅ 🔹 STRING METHODS SUMMARY
+
+| Method               | Use / Meaning                    | Example                       | Output            |
+| -------------------- | -------------------------------- | ----------------------------- | ----------------- |
+| `length()`           | Total characters in string       | `"hello".length()`            | `5`               |
+| `charAt(index)`      | Get character at index           | `"java".charAt(2)`            | `'v'`             |
+| `substring(a, b)`    | Cut part of string from a to b-1 | `"hello".substring(1,4)`      | `"ell"`           |
+| `equals()`           | Check content match              | `"hi".equals("hi")`           | `true`            |
+| `equalsIgnoreCase()` | Ignore case while comparing      | `"Hi".equalsIgnoreCase("hi")` | `true`            |
+| `contains()`         | Check if word/char exists        | `"java".contains("va")`       | `true`            |
+| `startsWith()`       | Check if starts with string      | `"java".startsWith("ja")`     | `true`            |
+| `endsWith()`         | Check if ends with string        | `"java".endsWith("va")`       | `true`            |
+| `indexOf(char)`      | First occurrence of char         | `"apple".indexOf('p')`        | `1`               |
+| `lastIndexOf(char)`  | Last occurrence                  | `"apple".lastIndexOf('p')`    | `2`               |
+| `replace(a,b)`       | Replace characters               | `"apple".replace("p","b")`    | `"abble"`         |
+| `toLowerCase()`      | All lowercase                    | `"HELLO".toLowerCase()`       | `"hello"`         |
+| `toUpperCase()`      | All uppercase                    | `"java".toUpperCase()`        | `"JAVA"`          |
+| `split(" ")`         | Break string into array          | `"hi there".split(" ")`       | `["hi", "there"]` |
+| `trim()`             | Remove spaces around string      | `"  hello  ".trim()`          | `"hello"`         |
+| `toCharArray()`      | Convert to char array            | `"abc".toCharArray()`         | `['a','b','c']`   |
+| `String.valueOf(10)` | Convert int/char to string       | `String.valueOf(5)`           | `"5"`             |
+--------------------------------------------------------------------------------------------------------------------->
+✅ 🔸 ARRAY METHODS SUMMARY
+| Concept / Method              | Use / Meaning                 | Example                       |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| `arr.length`                  | Total elements in array       | `arr.length`                  |
+| `Arrays.sort(arr)`            | Sort array in ascending order | `Arrays.sort(arr)`            |
+| `Arrays.equals(arr1, arr2)`   | Check if 2 arrays are same    | `true` / `false`              |
+| `Arrays.toString(arr)`        | Print array as string         | `[1, 2, 3]`                   |
+| `Arrays.copyOf(arr, n)`       | Copy first `n` elements       | `Arrays.copyOf(arr, 3)`       |
+| `arr.clone()`                 | Clone array                   | `int[] b = arr.clone()`       |
+| `Arrays.fill(arr, val)`       | Fill array with one value     | `Arrays.fill(arr, 0)`         |
+| `Arrays.binarySearch(arr, k)` | Search (only sorted arrays)   | `Arrays.binarySearch(arr, 5)` |
+| `Arrays.deepToString()`       | Print 2D array                | `Arrays.deepToString(arr2D)`  |
+| `int[][] a = new int[3][4]`   | Create 2D array               | 3 rows, 4 columns             |
+--------------------------------------------------------------------------------------------------------->
+🔄 CONVERSIONS (VERY IMPORTANT)
+| Convert From → To  | Code Example            |
+| ------------------ | ----------------------- |
+| String → char\[]   | `"abc".toCharArray()`   |
+| char\[] → String   | `new String(charArray)` |
+| String → String\[] | `"a b".split(" ")`      |
+| int → String       | `String.valueOf(10)`    |
+| String\[] → String | `String.join(",", arr)` |
+----------------------------------------------------->
+🚨 CONFUSING POINTS CLEARED
+
+| Confusion | Arrays                      | Strings                                        |
+| --------- | --------------------------- | ---------------------------------------------- |
+| Length    | `.length`                   | `.length()`                                    |
+| Equals    | `Arrays.equals(arr1, arr2)` | `str1.equals(str2)`                            |
+| Sorting   | `Arrays.sort()`             | No direct `sort()` — convert to `char[]` first |
+| Printing  | `Arrays.toString()`         | Directly `System.out.println(str)`             |
+----------------------------------------------------------------------------------------------->
+
+✅ Java Arrays – Key Points:
+Declaration: int[] arr = new int[5]; or int[] arr = {1,2,3};
+
+Common Methods:
+
+Arrays.sort(arr) – Sort the array.
+
+Arrays.toString(arr) – Print array easily.
+
+Arrays.copyOf(arr, size) – Create a copy.
+
+Arrays.equals(arr1, arr2) – Compare two arrays.
+
+Tricks:
+
+Frequency counts using extra array.
+
+Reverse arrays using swapping logic.
+
+Find duplicates, max/min, sorting.
+✅ Java Strings – Key Points:
+Declaration: String s = "Hello";
+
+Common Methods:
+
+s.length() – Get string length.
+
+s.charAt(i) – Get char at position i.
+
+s.equals(s2) – Compare two strings.
+
+s.toCharArray() – Convert to array.
+
+s.toLowerCase() / toUpperCase() – Case change.
+
+s.contains("ab"), s.indexOf("a") – Check contents.
+
+s.replace('a', 'b') – Replace characters.
+
+Tricks:
+
+Palindrome check.
+
+Reverse string using loop or StringBuilder.
+
+Anagram checker using sorting.
+
+Frequency using array or map.
+
+🔄 String-Array Conversion:
+String s = new String(charArray);
+
+char[] ch = s.toCharArray();
+
+String[] parts = s.split(" ");
+
+
+💡 ASCII/Unicode:
+
+Characters are stored as numbers.
+
+'A' = 65, 'a' = 97, so 'a' - 'A' = 32.
+
+Used for:
+
+Case conversion.
+
+Frequency array int[26] for lowercase a-z.
+
+Pattern matching.
+
+🧠 Pro Tip:
+Use these methods properly with practice:
+
+Arrays.sort()
+
+Arrays.toString()
+
+String.charAt(i)
+
+String.equals()
+
+substring()
+
+split()
+
+toCharArray()
+
+Integer.parseInt()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

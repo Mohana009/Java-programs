@@ -1,0 +1,227 @@
+Database:
+---------
+Databases are software that stores and manages the permanently in your system
+
+Relational Databases:
+MySQL, Oracle, PostgreSQL, MS SQL Server
+SQL --> Structured Query Language
+
+Database Languages
+------------------
+DDL -> Data Definition Language
+Helps you work at the table structure level
+CARD-T
+CREATE, ALTER, RENAME, DROP, TRUNKATE
+
+DML -> Data Manipulation Language
+Helps you work at data level
+INSERRT, UPDATE, DELETE, SELECT
+
+--To create a table
+  DML -> INSERT
+  CREATE TABLE table_name(field1 type1, field2 type2, ...)
+
+--To see the description (columns and their types) 
+  DESC table_name
+
+--To delete everything from the table
+  DELETE FROM table_name;
+
+-- Select command is to fetch the data from table
+  SELECT * FROM table_name;
+
+--To remove total table
+   DROP TABLE table_name
+
+--To remove specific data from table
+  DELETE FROM table_name WHERE condition;
+  Without WHERE class
+  DELETE FROM table_name -> bad way
+
+--UPDATE is used to modify the data from 1 or more rows
+  DML command -> UPDATE
+  UPDATE table_name SET col_name = new_value WHERE condition;
+
+
+Java + Database Connectivity
+-----------------------------
+Pre-requisites:
+1. Data base server
+2. Java installed in your system
+3. Java MySQL Connector(Connector/j)
+
+Step 0: import java.sql.DriverManager;
+
+Step 1: Create a connection b/w Java program and database
+	DriverManager.getConnection()
+	java.sql
+	3 arguments: -> Strings
+	------------
+	database_url : -> (Connection string)
+	"jdbc:mysql://host_name:po/db_name"
+	"jdbc:mysql://localhost:3306/mydb1"
+
+	database_userName : "root"
+
+	database_passwod : "your_password"
+
+
+Commands
+---------
+CREATE DATABASE dbname;
+show databases;
+use mydb1;
+show tables;
+SELECT * FROM staff;
+SELECT DISTINCT author from books;
+desc books; -> describes the table columns and their types
+
+
+-cp flag:
+----------
+To use some classes outside java.
+Those classes are available in driver connector j.
+We need to provide path of that driver
+Compilation:
+javac -cp ; "pathtodriver" Filename.java
+
+Execution:
+java -cp ; "pathtodriver" classname
+
+
+VSCODE new folder
+----------------
+Java projects -> referenced libraries -> select jar file
+
+ResultSet:
+---------
+import java.sql.ResultSet;
+1. It is uses to store the results of SELECT statement on databases tables
+2. ResultSet stores the data retrieved as a result of a SELECT statement
+3. Using ResultSet methods, we can access and display the data
+
+
+st.executeUpdate() and st.executeQuery():
+----------------------------------------
+Both will take SQL Queries as strings
+
+st.executeUpdate():
+It is used to perform
+DML (Data Manipulation Language): INSERT, DELETE, UPDATE,	-> Data level
+DDL (Data Definition Language): CREATE, ALTER, DROP
+
+Example Queries:
+INSERT INTO staff VALUES(101, "Pavan", 80000);
+UPDATE staff SET salary = 100000 WHERE id = 101;
+
+st.executeQuery():
+Used for SELECT Queries -> Especially designed for SELECT statement
+The return type is ResultSet
+*For queries which give tables as result
+
+
+
+
+JavaFX
+-------
+
+
+Packages:
+javafx.application
+javafx.stage
+javafx.scene
+javafx.scene.layout
+	Pane
+	Hbos/Vbox
+	GridPane
+	BoarderPane
+	StackPane
+	FlowPane
+javafx.scene.control
+javafx.scene.text
+javafx.scene.shape
+javafx.scene.image
+javafx.scene.paint
+javafx.scene.effect
+javafx.event
+
+Steps you need to follow to make a JavaFX application window 
+Step 1: Make your class as a child class of Application class from javafx.application 	package
+
+
+//Application is a abstract class 
+//-> we should provide implementation for all abstract methods in Application class in our class
+
+
+Command for compiling and running a JavaFX application is:
+Compilation:
+javac --module-path "path\to\javafx\lib\folder" --add-modules javafx.controls,javafx.fxml filename.java
+
+Execution:
+java --module-path "path\to\javafx\lib\folder" --add-modules javafx.controls,javafx.fxml classname
+
+C:\Users\achut\Downloads\openjfx-25_windows-x64_bin-sdk\javafx-sdk-25\lib
+
+
+
+javac --module-path C:\Users\achut\Downloads\openjfx-25_windows-x64_bin-sdk\javafx-sdk-25\lib --add-modules javafx.controls,javafx.fxml Main.java
+
+java --module-path C:\Users\achut\Downloads\openjfx-25_windows-x64_bin-sdk\javafx-sdk-25\lib --add-modules javafx.controls,javafx.fxml Main
+
+javac --module-path C:\Users\achut\Downloads\openjfx-25_windows-x64_bin-sdk\javafx-sdk-25\lib --add-modules javafx.controls,javafx.fxml MainController.java
+
+The stage is set 
+--> Set a scene on the stage
+--> To build a scene, we need layout + nodes
+--> Vbox is a layout manager which alloes you to add different widgets (Buttons, Textfield,
+    Dropdrow)
+
+--> Step 1: Create a layout manager
+--> Step 2: Add some component to layoutmanager
+--> Step 3: Create a 
+
+
+
+How JavaFx separated ui Business Logic
+It uses Scripting language called: fxml
+fxml contains the UI configuration
+
+In your main.java file you can load the fxml file and get the GUI
+Controller file: Dedicated for business logic
+
+Pre-requisites:
+Install SceneBuilder
+
+2 Java files + 1 FXML file
+FXML file : Contains UI logic
+Main.java : Contains he code that can trigger the UI
+MainController.java : Handles the business logic
+
+
+
+
+
+
+Atleast 3 files
+2 Java files 
+one file : Handling the loading of UI from FXML FILE (Main.java)
+second file : Responsible for holding logic related code that can contain performed on our application window
+1 FXMLfile: Holding the code configuration for UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

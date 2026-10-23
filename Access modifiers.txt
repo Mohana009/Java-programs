@@ -1,0 +1,15 @@
+default:
+Any member set to default access modifier, it can be accessed 
+1.
+
+
+Java Project Source:
+--------------------
+Project Folder
+|
+|	|- pack1 (package)
+		|- Student (class)
+		|- Main1 (class)	
+		|- Main2 (class)
+	|- pack2 (package)
+		|- Main3 (class)

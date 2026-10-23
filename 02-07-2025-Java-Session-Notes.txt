@@ -1,0 +1,112 @@
+Commands to compile and run a Java program:
+-------------------------------------------
+Compilation:
+javac filename.java
+
+The above command leads to generation of byte code (.class files), which can be used in execution (If the class is runnable)
+
+Execution:
+java classname
+
+
+
+Identifiers are names given by us to different entities
+
+In Java you can name
+class, variable, methods (functions), interfaces, packages
+
+Conventions in Java:
+--------------------
+PascalCase: 
+Every word's first letter is capital
+Used for - classes and interfaces
+Example: System (class), String (class), MouseListener (Interface)
+
+camelCase: 
+lowercase for first word, first letter capital for subsequent words
+Used for - methods and variables
+Example: nextInt() (method), charAt() (method)
+	 daysRented (variable), firstName (variable)
+
+
+Rules to pick names as identifiers:
+-----------------------------------
+1. Names should not start with digit
+2. No whitespaces are allowed within the name
+3. Keywords cannot be used as identifier names
+4. No special chars are allowed except underscore(_), dollar ($)
+5. The identifier name can be alphanumeric (num1, number1)
+
+Data types:
+------------
+Primitive Data types:
+---------------------
+There are 8 primitive data types present in Java
+
+Int Types:
+---------
+byte --> 1 byte long (8 bits)
+short --> 2 bytes long (16 bits)
+int  --> 4 bytes (32 bits)
+long --> 8 bytes (64 bits)
+Format specifier: byte, short, int, long --> %d
+
+Decimal Types:
+--------------
+float --> 4 bytes --> %f
+double --> 8 bytes --> %f
+
+Character Types:
+-----------------
+char --> 2 bytes --> %c
+
+Boolean Type:
+-------------
+boolean -> 1 bit --> true / false --> %b
+
+
+
+Scanner class in Java:
+------------------------
+1. Scanner class is a part of java.util package
+2. It allows us to take input from several input sources (like console, file)
+3. It offers methods to read formatted input
+4. It's necessary to create an object to Scanner class in order to call methods
+
+Syntax:
+Step 1: import java.util.Scanner; // importing Scanner class into our program
+Step 2: Creating an object to Scanner class
+	Scanner sc = new Scanner(System.in);
+Step 3: Call methods
+Methods:
+To read byte: nextByte();
+To read long:  nextLong();
+To read integers: nextInt();
+To read float: nextFloat()
+To read double: nextDouble()
+To read a string (withtout spaces): next()
+To read a string (with spaces): nextLine()
+To read a character: No direct method, we have to read a string and get first character from it: next().charAt(0)
+
+Example Program:
+================
+import java.util.Scanner;
+class Demo 
+{
+	public static void main(String[] args) 
+	{
+		// Creating an object to Scanner class
+		Scanner sc = new Scanner(System.in);
+		// Reading
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		long val = sc.nextLong();
+		char ch = sc.next().charAt(0);
+		int c = a + b;
+		System.out.println("Sum of " + a + " and " + b + " is: " + c);
+		System.out.printf("Sum of %d and %d is: %d\n", a, b, c);
+	}
+}
+
+
+
